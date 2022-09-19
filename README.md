@@ -21,6 +21,7 @@ Architettura:
 4) Inserire la variabile 'ci_cd_source_repo_token = "TOKEN_FORNITO"' nel terraform.tfvars.
 5) terraform init
 6) terraform apply
+7) Nell´output di terraform troveremo il dns name del load balancer.
 
 note:
 - Sarebbe necessario un plugin come https://wordpress.org/plugins/hyperdb/ per sfruttare la scalabilità del database (ora usato solo il reader endpoint)
