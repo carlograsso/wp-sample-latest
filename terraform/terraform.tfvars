@@ -27,7 +27,6 @@ database_min_num        = 1
 database_max_num        = 5
 database_engine         = "aurora-mysql"
 database_engine_version = "8.0.mysql_aurora.3.02.0"
-database_instance_class = "db.t3.small"
 db_password_secret_name = "wp-application-db-password"
 
 ##### ECS CLUSTER
@@ -49,7 +48,6 @@ cpu_down_threshold = 30
 ci_cd_source_repo_owner = "carlograsso"
 ci_cd_source_repo_name = "wp-sample-latest"
 ci_cd_source_repo_branch = "main"
-
 
 
 
