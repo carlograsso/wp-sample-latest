@@ -94,7 +94,7 @@ resource "aws_iam_policy" "db_access" {
       {
         "Effect" : "Allow",
         "Action" : "rds:*",
-        "Resource" : ["arn:aws:rds:eu-west-1:*:*"]
+        "Resource" : ["arn:aws:rds:*:*:*"]
       }
     ]
   })

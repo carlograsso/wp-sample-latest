@@ -66,7 +66,7 @@ resource "aws_iam_role_policy" "codebuild" {
         {
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:logs:eu-west-1:*:log-group:*"
+                "arn:aws:logs:*:*:log-group:*"
             ],
             "Action": [
                 "logs:CreateLogGroup",
@@ -97,7 +97,7 @@ resource "aws_iam_role_policy" "codebuild" {
                 "codebuild:BatchPutCodeCoverages"
             ],
             "Resource": [
-                "arn:aws:codebuild:eu-west-1:*:report-group/*"
+                "arn:aws:codebuild:*:*:report-group/*"
             ]
         }
     ]
