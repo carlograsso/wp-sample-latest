@@ -60,7 +60,7 @@ resource "aws_codepipeline" "codepipeline" {
         ApplicationName                = aws_codedeploy_app.this.name
         DeploymentGroupName            = aws_codedeploy_deployment_group.this.deployment_group_name
         AppSpecTemplateArtifact        = "DefinitionArtifact"
-        AppSpecTemplatePath            = "appspec.yaml"
+        AppSpecTemplatePath            = "appspec.yml"
         TaskDefinitionTemplateArtifact = "DefinitionArtifact"
         TaskDefinitionTemplatePath     = "taskdef.json"
         Image1ArtifactName             = "ImageArtifact"

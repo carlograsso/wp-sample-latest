@@ -22,6 +22,10 @@ Architettura:
 5) terraform init
 6) terraform apply
 
+note:
+- Sarebbe necessario un plugin come https://wordpress.org/plugins/hyperdb/ per sfruttare la scalabilità del database (ora usato solo il reader endpoint)
+- Stessa cosa dicasi per un eventual Offload dei file statici su s3 implementabile con apposito plugin di wp
+
 # CI/CD Applicativa
 
 Assieme all´infrastruttura viene deployata una Pipeline CodePipeline e un´application CodeDeploy e un ECR che consentono di buildare il Dockerfile presente nella home della main branch di questo repository e di effettuare un blue/green deployment su ECS.
