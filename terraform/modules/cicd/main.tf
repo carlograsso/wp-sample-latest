@@ -19,10 +19,10 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        Owner = "carlograsso"
-        Repo = "wp-sample-final"
-        Branch = "main"
-        OAuthToken = "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"
+        Owner = var.ci_cd_source_repo_owner
+        Repo = var.ci_cd_source_repo_name
+        Branch = var.ci_cd_source_repo_branch
+        OAuthToken = var.ci_cd_source_repo_token
        }
     }
   }
@@ -68,11 +68,6 @@ resource "aws_codepipeline" "codepipeline" {
       }
     }
   }
-}
-
-resource "aws_codestarconnections_connection" "this" {
-  name          = var.name
-  provider_type = "GitHub"
 }
 
 resource "random_integer" "this" {

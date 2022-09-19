@@ -185,9 +185,11 @@ module "ci_cd" {
   source = "./modules/cicd/"
 
   name = var.resource_name
-  ci_cd_source_repo = var.ci_cd_source_repo
-  ci_cd_source_branch = var.ci_cd_source_branch
-  ci_cd_source_detect_changes= var.ci_cd_source_detect_changes
+   ci_cd_source_repo_owner = var.ci_cd_source_repo_owner
+  ci_cd_source_repo_name = var.ci_cd_source_repo_name
+  ci_cd_source_repo_branch = var.ci_cd_source_repo_branch
+  ci_cd_source_repo_token= var.ci_cd_source_repo_token
+
 
   codebuild_params = {
     git_repo     = "https://github.com/carlograsso/wp-sample-final"

@@ -19,6 +19,7 @@ variable "environment_variables" {
   type        = map(string)
 }
 
-variable "ci_cd_source_repo" {}
-variable "ci_cd_source_branch" {}
-variable "ci_cd_source_detect_changes" {}
+variable "ci_cd_source_repo_name" {}
+variable "ci_cd_source_repo_owner" {}
+variable "ci_cd_source_repo_branch" {}
+variable "ci_cd_source_repo_token" {}

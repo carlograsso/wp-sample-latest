@@ -23,7 +23,7 @@ efs_ap_permissions = 0775
 database_username = "username"
 
 database_name           = "wordpress"
-database_min_num        = 1
+database_min_num        = 2
 database_max_num        = 3
 database_engine         = "aurora-mysql"
 database_engine_version = "8.0.mysql_aurora.3.02.0"
@@ -42,12 +42,13 @@ deployment_config_name           = "CodeDeployDefault.ECSAllAtOnce"
 termination_wait_time_in_minutes = 5
 
 ecs_max_capacity   = 3
-ecs_min_capacity   = 1
+ecs_min_capacity   = 2
 cpu_up_threshold   = 70
 cpu_down_threshold = 30
 
-ci_cd_source_repo = "carlograsso/wp-sample-final"
-ci_cd_source_branch = "developing"
-ci_cd_source_detect_changes = false
+ci_cd_source_repo_owner = "carlograsso"
+ci_cd_source_repo_name = "wp-sample-latest"
+ci_cd_source_repo_branch = "main"
+
 
 
