@@ -4,9 +4,9 @@ resource_name = "wp-application"
 
 ##### VPC
 vpc_cidr        = "10.0.0.0/16"
-azs             = ["eu-west-1a", "eu-west-1b" , "eu-west-1c"]
-private_subnets = ["10.0.1.0/24", "10.0.2.0/24" ,  "10.0.3.0/24"]
-public_subnets  = ["10.0.11.0/24", "10.0.12.0/24" , "10.0.13.0/24"]
+azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+public_subnets  = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
 
 ##### FILESYSTEM
 efs_ap_path        = "/wordpress"
@@ -42,7 +42,7 @@ ecs_min_capacity   = 2
 cpu_up_threshold   = 70
 cpu_down_threshold = 30
 
-ci_cd_source_repo_owner = "carlograsso"
-ci_cd_source_repo_name = "wp-sample-latest"
+ci_cd_source_repo_owner  = "carlograsso"
+ci_cd_source_repo_name   = "wp-sample-latest"
 ci_cd_source_repo_branch = "main"
 

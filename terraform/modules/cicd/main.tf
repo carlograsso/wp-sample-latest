@@ -19,11 +19,11 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        Owner = var.ci_cd_source_repo_owner
-        Repo = var.ci_cd_source_repo_name
-        Branch = var.ci_cd_source_repo_branch
+        Owner      = var.ci_cd_source_repo_owner
+        Repo       = var.ci_cd_source_repo_name
+        Branch     = var.ci_cd_source_repo_branch
         OAuthToken = var.ci_cd_source_repo_token
-       }
+      }
     }
   }
 

@@ -92,6 +92,10 @@ module "db_serverless" {
 ######################################################
 resource "aws_route53_zone" "this" {
   name = "dev.wp-sample.internal"
+
+  vpc {
+    vpc_id = module.vpc.vpc_id
+  }
 }
 
 resource "aws_route53_record" "db_writer" {
@@ -166,10 +170,9 @@ module "ecs_cluster" {
     container_path           = var.container_path
     db_password_secret_arn   = data.aws_secretsmanager_secret_version.db_password.arn
     environment = {
-      db_host     = module.db_serverless.cluster_endpoint
       db_username = var.database_username
-      # db_host = aws_route53_record.db_writer.fqdn
-      db_name = var.database_name
+      db_host     = aws_route53_record.db_writer.fqdn
+      db_name     = var.database_name
     }
   }
   ecs_max_capacity   = var.ecs_max_capacity
@@ -184,11 +187,11 @@ module "ecs_cluster" {
 module "ci_cd" {
   source = "./modules/cicd/"
 
-  name = var.resource_name
-   ci_cd_source_repo_owner = var.ci_cd_source_repo_owner
-  ci_cd_source_repo_name = var.ci_cd_source_repo_name
+  name                     = var.resource_name
+  ci_cd_source_repo_owner  = var.ci_cd_source_repo_owner
+  ci_cd_source_repo_name   = var.ci_cd_source_repo_name
   ci_cd_source_repo_branch = var.ci_cd_source_repo_branch
-  ci_cd_source_repo_token= var.ci_cd_source_repo_token
+  ci_cd_source_repo_token  = var.ci_cd_source_repo_token
 
 
   codebuild_params = {
@@ -200,12 +203,12 @@ module "ci_cd" {
   }
   image_name = var.image_name
   environment_variables = {
-    AWS_REGION      = var.region
-    AWS_ACCOUNT_ID  = data.aws_caller_identity.this.account_id
-    IMAGE_REPO_NAME = var.image_name
-    IMAGE_TAG       = var.image_tag
-    CONTAINER_NAME  = var.resource_name
-    CONTAINER_PORT  = var.container_port
+    AWS_REGION          = var.region
+    AWS_ACCOUNT_ID      = data.aws_caller_identity.this.account_id
+    IMAGE_REPO_NAME     = var.image_name
+    IMAGE_TAG           = var.image_tag
+    CONTAINER_NAME      = var.resource_name
+    CONTAINER_PORT      = var.container_port
     SECURITY_GROUP      = module.sgs.sg_ecs
     TASK_DEFINITION_ARN = module.ecs_cluster.ecs_task_definition_arn
     TASK_DEFINITION     = "wp-application-task"

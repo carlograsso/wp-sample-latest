@@ -12,11 +12,11 @@ variable "image_name" {}
 
 
 variable "codebuild_params" {
-  type        = map(string)
+  type = map(string)
 }
 
 variable "environment_variables" {
-  type        = map(string)
+  type = map(string)
 }
 
 variable "ci_cd_source_repo_name" {}

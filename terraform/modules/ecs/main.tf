@@ -84,7 +84,7 @@ resource "aws_ecs_service" "this" {
   }
 
 }
- 
+
 
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = var.ecs_max_capacity # TODO CAPACITY
