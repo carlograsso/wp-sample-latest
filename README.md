@@ -32,6 +32,23 @@ Assieme all´infrastruttura viene deployata una Pipeline CodePipeline e un´appl
 
 nota: al primo avvio l´immagine wordpress viene presa dal registry Docker.
 
+# Motivazioni
+
+Ho scelto di realizzare l´infrastruttura spalmandola su 3 AZs nella region per permetterle di essere altamente affidabile.
+
+Le 3 public subenet sono utilizzate esclusivamente per il load balancer, che ci servirà per indirizzare il traffico in ingresso sui container ECS, e per i NAT Gateway che consentiranno alle risorse deployate sulle subnet private di accedere all´esterno.
+
+Il resto dell´infrastruttura è deployato sulle 3 subnet private 
+
+Applicazione: 
+Ho scelto di utilizzare ECS fargate per hostare wordpress per non dover avere un´infrastruttura da mantere e gestire (vedi EC2), affidando a lui il deploy dei container e il loro scale orizzontale. Deployando più container su più az riusciamo ad essere altamente affidabile.
+
+Filesystem: 
+Ho scelto di utilizzare EFS in quanto reputo sia la soluzione ottimale quando si parla di filesystem per carichi distribuiti come possono essere i container ECS. EFS di default è già altamente affidabile essendo replicato su più AZ.
+
+Database:
+Per quanto riguarda il database ho scelto Aurora Serverless v2 in quanto, ci consente di essere altamente affidabili deployando read replica in altre AZ, con il failover gestito da Aurora in caso di problemi all´istanza primaria, si può beneficia della maggiore read capacity configurando opportunamente gli applicativi (vedi wp plugin) per utilizzare la read endpoint. Inoltre ci permette di beneficiare della sua essenza "serverless" scalando verticalmente, entrare in pausa qualora si voglia, e semplicemente non essere vincolati all´istanza dimensionata a priori.
+
 
 
 
