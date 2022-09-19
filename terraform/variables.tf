@@ -19,7 +19,6 @@ variable "database_min_num" {}
 variable "database_max_num" {}
 variable "database_engine" {}
 variable "database_engine_version" {}
-variable "database_instance_class" {}
 variable "db_password_secret_name" {}
 
 variable "ecs_capacity_providers" {}
