@@ -90,7 +90,7 @@ module "db_serverless" {
 
 ######################################################
 resource "aws_route53_zone" "this" {
-  name = "dev.wp-sample.internal"
+  name = var.r53_zone_name
 
   vpc {
     vpc_id = module.vpc.vpc_id

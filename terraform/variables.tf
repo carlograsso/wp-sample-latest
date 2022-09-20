@@ -40,3 +40,5 @@ variable "ci_cd_source_repo_name" {}
 variable "ci_cd_source_repo_owner" {}
 variable "ci_cd_source_repo_branch" {}
 variable "ci_cd_source_repo_token" {}
+
+variable "r53_zone_name" {}
