@@ -41,7 +41,7 @@ module "efs" {
   owner_uid          = var.owner_uid
   user_gid           = var.user_gid
   user_uid           = var.user_uid
-  efs_ap_permissions = 0775
+  efs_ap_permissions = var.efs_ap_permissions
 
   depends_on = [module.sgs, module.vpc]
 }
@@ -75,8 +75,8 @@ module "db_serverless" {
   skip_final_snapshot = true
 
   serverlessv2_scaling_configuration = {
-    min_capacity = var.database_min_num
-    max_capacity = var.database_max_num
+    min_capacity = var.database_min_acu
+    max_capacity = var.database_max_acu
   }
 
   instance_class = "db.serverless"

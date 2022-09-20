@@ -15,8 +15,8 @@ variable "efs_ap_permissions" {}
 
 variable "database_name" {}
 variable "database_username" {}
-variable "database_min_num" {}
-variable "database_max_num" {}
+variable "database_min_acu" {}
+variable "database_max_acu" {}
 variable "database_engine" {}
 variable "database_engine_version" {}
 variable "db_password_secret_name" {}

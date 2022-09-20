@@ -22,8 +22,8 @@ efs_ap_permissions = 0775
 database_username = "username"
 
 database_name           = "wordpress"
-database_min_num        = 1
-database_max_num        = 5
+database_min_acu        = 1
+database_max_acu        = 5
 database_engine         = "aurora-mysql"
 database_engine_version = "8.0.mysql_aurora.3.02.0"
 db_password_secret_name = "wp-application-db-password"
