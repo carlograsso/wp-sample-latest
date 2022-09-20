@@ -11,7 +11,6 @@ module "vpc" {
   # database_subnets = var.database_subnets
 
   enable_nat_gateway   = true
-  enable_vpn_gateway   = true
   enable_dns_support   = true
   enable_dns_hostnames = true
 }
